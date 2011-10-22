@@ -16,11 +16,12 @@ using System.Runtime.InteropServices;
 //      Build Number
 //      Revision
 //
-[assembly: AssemblyVersion("0.40.0.0")]
-[assembly: AssemblyFileVersion("0.40.0.0")]
+[assembly: AssemblyVersion("0.41.0.0")]
+[assembly: AssemblyFileVersion("0.41.0.0")]
 /*****************************************************************************
  * Date         Version      Description
 ****************************************************************************** 
+ * 2011-10-22   BETA 0.41    Update to handle extended CAN message RX.
  * 2011-10-04   BETA 0.40    Initial release
  * 
  * 
