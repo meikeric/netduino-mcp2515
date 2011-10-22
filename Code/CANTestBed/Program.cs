@@ -14,8 +14,10 @@ namespace CANTestBed
             int cnt = 0;
             bool bootState = false;
             bool txLedState = false;
+            bool rxLedState = false;
             
             OutputPort txled = new OutputPort(Pins.GPIO_PIN_D8, txLedState);
+            OutputPort rxled = new OutputPort(Pins.GPIO_PIN_D7, rxLedState);
             OutputPort bootLed = new OutputPort(Pins.ONBOARD_LED, bootState);
 
             // Blink the netduino led to indicate boot state.
@@ -39,7 +41,7 @@ namespace CANTestBed
 
             // Create extended TX message.
             MCP2515.CANMSG txMessageExt = new MCP2515.CANMSG();
-            txMessageExt.CANID = 0x1FEDCBA0;
+            txMessageExt.CANID = 0x1FEDCBA1;
             txMessageExt.data = new byte[] { 0x00, 0xEE };
 
             // Create the message that will hold received messages.
@@ -59,7 +61,14 @@ namespace CANTestBed
                 // Check if a message was received.
                 if (CANHandler.Receive(out rxMessage, 20))
                 {
-
+                    rxled.Write(rxLedState);
+                    if (rxMessage.IsExtended)
+                    {
+                        rxLedState = !rxLedState;
+                    }
+                    else
+                    { 
+                    }
                 }
                 // Increase counter.
                 cnt++;
