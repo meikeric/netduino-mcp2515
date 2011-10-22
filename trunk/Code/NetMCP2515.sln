@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual C# Express 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CANTestBed", "CANTestBed\CANTestBed.csproj", "{55EBBF68-6F6C-446E-8CEE-97139FCF0ECB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CANTestBed", "MCP2515\CANTestBed.csproj", "{55EBBF68-6F6C-446E-8CEE-97139FCF0ECB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
