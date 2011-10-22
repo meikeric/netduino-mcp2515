@@ -165,8 +165,9 @@ namespace System
         public bool InitCAN(enBaudRate baudrate)
         {
             // Configure SPI            
-            var config = new SPI.Configuration(SLAVESELECT, LOW, 0, 0, LOW, HIGH, 10000, SPI.SPI_module.SPI1);
-            spi = new SPI(config);
+            var configSPI= new SPI.Configuration(SLAVESELECT, LOW, 0, 0, HIGH, HIGH, 10000, SPI.SPI_module.SPI1);
+            spi = new SPI(configSPI);
+
             // Write reset to the CAN transceiver.
             spi.Write(new byte[] {RESET});
             //Read mode and make sure it is config
@@ -457,7 +458,11 @@ namespace System
             mode = (byte)(mode >> 5);
             if (mode != 0)
             { }
-  
+
+            // Set RX buffer control to turn filters OFF and receive any message.
+            WriteRegister(RXB0CTRL, 0x60);
+
+
         }
 
 
