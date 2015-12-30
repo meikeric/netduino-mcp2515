@@ -1,0 +1,1 @@
+C# library for the MCP2515/CAN-Bus transceiver for NETDuino using .NET micro framework. Developed for the CAN Shield: http://www.sparkfun.com/products/10039
